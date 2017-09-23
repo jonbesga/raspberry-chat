@@ -7,8 +7,9 @@ block extrahead
 block content 
     h1 Chat #{username}
 
-    h2 Connected users
-    ul#userList
+    #userListContainer
+        h2 Connected users
+        ul#userList
     
     #chatBox
         input#messageInput(type="text", name="message")

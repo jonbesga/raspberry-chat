@@ -1,6 +1,115 @@
+:root {
+  --c-enphasis: #E2E2E2;
+  --c-base: #C0C0C0;
+  --c-background1: #1B1B1B;
+  --c-background2: #272727;
+  --c-background3: #333333;
+  --c-input-background: #555555;
+  --c-input-border: #CACACA;
+  --c-placeholder-background: rgba(255, 255, 255, 0.7);
+}
+
 html, body{
+  font-family: -apple-system, BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica,Neue,sans-serif;
   margin: 0;
   width: 100%;
+}
+
+body {
+  background-color: var(--c-background1);
+  color: var(--c-base);
+}
+
+ul {
+  padding: 0;
+}
+li {
+  list-style-type: none;
+}
+
+h1 {
+  text-align: center;
+  font-weight: 100;
+  color: var(--c-enphasis);
+  /* line-height: 142%; */
+  padding: 0 50px;
+}
+#welcome {
+  margin-top: calc(0.6 * 100vw);
+}
+#subh1 {
+  /* min-width: 155px; */
+  white-space: nowrap;
+}
+
+#center{
+  text-align: center;
+}
+input[type=text][name=username]{
+  font-size: 100%;
+  padding: 14px 18px;
+  /* padding: 14px 16px; */
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border: 0;
+  border-bottom: 0.5px solid var(--c-input-border);
+  
+  color: var(--c-enphasis);
+  background-color: var(--c-input-background);
+}
+
+/* do not group these rules */
+*::-webkit-input-placeholder {
+  color: var(--c-placeholder-background);
+  text-align: center;
+}
+*:-moz-placeholder {
+  /* FF 4-18 */
+  color: var(--c-placeholder-background);
+  opacity:  1;
+  text-align: center;
+}
+*::-moz-placeholder {
+  /* FF 19+ */
+  color: var(--c-placeholder-background);
+  opacity:  1;
+  text-align: center;
+}
+*:-ms-input-placeholder {
+  /* IE 10+ */
+  color: var(--c-placeholder-background);
+  text-align: center;
+}
+#submitUsernameInput,
+#submitUsernameButton {
+  margin: 2px 0;
+}
+#submitUsernameButton > input {
+  color: var(--c-base);
+  background-color:var(--c-background3);
+  font-size: 95%;
+  padding: 11px 15px;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  border: 1px solid var(--c-input-background);
+  border-top: 0px;
+}
+
+#userListContainer{
+  margin: 5px;
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+  background-color: var(--c-background2);
+  border: 1px solid #616161;
+}
+#userListContainer h2 {
+  text-align: right;
+  font-size: 100%;
+  margin: 0;
+}
+.userList{
+  font-size: 60px;
 }
 
 #chatBox{

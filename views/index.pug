@@ -1,0 +1,10 @@
+include layout
+
+block content 
+    h1 Welcome the chat
+    form(action="/", method="post")
+      p
+        label(for="username") Username 
+        input(type="text", name="username")
+      p
+        input(type="submit", value="Enter")

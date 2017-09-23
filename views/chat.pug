@@ -1,0 +1,16 @@
+include layout
+
+block extrahead
+  script(src='/socket.io/socket.io.js')
+
+block content 
+    h1 Hello #{username}
+
+    input#messageInput(type="text", name="message")
+    input#sendBtn(type="button", value="Send")
+    #chatLog
+
+    script.
+      const userName = '#{username}'
+
+    script(src="js/chat.js")

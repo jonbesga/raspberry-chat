@@ -1,0 +1,21 @@
+{
+  "name": "raspberry-chat",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "./node_modules/.bin/nodemon index.js",
+    "db": "docker-compose up -d"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.15.4",
+    "pug": "^2.0.0-rc.4",
+    "socket.io": "^2.0.3"
+  },
+  "devDependencies": {
+    "dotenv": "^4.0.0",
+    "nodemon": "^1.12.1"
+  }
+}

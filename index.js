@@ -31,16 +31,22 @@ io.on('connection', function(socket){
   
   allClients[socket.id] = {}
 
-  // console.log(allClients)
+  function handleUserListUpdate(allClients) {
+    const userNameList = [];
+    Object.keys(allClients).map((key,i) => {
+      userNameList.push(allClients[key].username);
+    });
+    io.sockets.emit('updateUserList', userNameList);
+  }
 
   socket.on('setUsername', function(username){
     allClients[socket.id]['username'] = username
-    console.log(allClients)
+    handleUserListUpdate(allClients)
   });
 
   socket.on('disconnect', function () {
     delete allClients[socket.id]
-    console.log(allClients)
+    handleUserListUpdate(allClients)
   })
 
   socket.on('sendMessage', function (message) {
@@ -51,6 +57,7 @@ io.on('connection', function(socket){
       from,
       message
     });
+    
   })
 });
 

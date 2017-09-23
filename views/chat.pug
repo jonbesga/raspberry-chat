@@ -7,14 +7,19 @@ block extrahead
 block content 
     h1 Chat #{username}
 
+    h2 Connected users
+    ul#userList
+    
     #chatBox
         input#messageInput(type="text", name="message")
         input#sendBtn(type="button", value="Send")
-
     
     #chatLog
 
     script.
-      const userName = '#{username}'
+      let userName;
+      if ('#{username}' !== '') {
+        userName = '#{username}'
+      }
 
     script(src="js/chat.js")

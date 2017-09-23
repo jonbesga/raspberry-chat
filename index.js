@@ -14,6 +14,7 @@ app.set('view engine', 'pug')
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.static('public'))
 
+
 app.get('/', function (req, res) {
   res.render('index');
 });
@@ -26,6 +27,8 @@ const allClients = {
 }
 
 io.on('connection', function(socket){
+
+  
   allClients[socket.id] = {}
 
   // console.log(allClients)
@@ -35,15 +38,19 @@ io.on('connection', function(socket){
     console.log(allClients)
   });
 
-  socket.on('disconnect', function (socket) {
+  socket.on('disconnect', function () {
     delete allClients[socket.id]
+    console.log(allClients)
   })
 
   socket.on('sendMessage', function (message) {
     const from = allClients[socket.id]['username']
     
     console.log(`${from}: ${message}`)
-    io.sockets.emit('receiveMessage', `${from}: ${message}`);
+    io.sockets.emit('receiveMessage', {
+      from,
+      message
+    });
   })
 });
 

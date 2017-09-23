@@ -1,13 +1,17 @@
 include layout
 
 block extrahead
+  link(rel="stylesheet", href="css/style.css")
   script(src='/socket.io/socket.io.js')
 
 block content 
-    h1 Hello #{username}
+    h1 Chat #{username}
 
-    input#messageInput(type="text", name="message")
-    input#sendBtn(type="button", value="Send")
+    #chatBox
+        input#messageInput(type="text", name="message")
+        input#sendBtn(type="button", value="Send")
+
+    
     #chatLog
 
     script.
